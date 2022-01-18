@@ -3,8 +3,20 @@ import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 
 export async function getStaticProps(context) {
+  const fs = require('fs');
   const data = require('/data/catdata.json');
   let cats = data.cats;
+
+  fs.readdirSync('public/images').forEach(file => {
+    if (file.slice(-4) === ".png") {
+      cats.forEach((cat) => {
+        if (cat.image.slice(0, -4) === file.slice(0, -4)) {
+          cat.image = file;
+        }
+      })
+    }
+    console.log(cats);
+  });
 
   return {
     props: { cats },
