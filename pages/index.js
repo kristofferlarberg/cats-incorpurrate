@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react';
 // import styles from '../styles/Home.module.css'
 
 export async function getStaticProps(context) {
@@ -25,6 +26,27 @@ export async function getStaticProps(context) {
 
 export default function Home(props) {
   const { cats } = props;
+  const [catsState, setCatsState] = useState(cats);
+
+  //Sort based on cutenessLevel - low to high
+  function sortAsc() {
+    const sortedData = [...cats].sort((a, b) => a.cutenessLevel - b.cutenessLevel)
+    setCatsState(sortedData)
+  }
+  //Sort based on cutenessLevel - high to low
+  function sortDesc() {
+    const sortedData = [...cats].sort((a, b) => b.cutenessLevel - a.cutenessLevel)
+    setCatsState(sortedData)
+  }
+
+  function sortReset(e) {
+    e.preventDefault
+    const sortedData = cats;
+    setCatsState(sortedData)
+  }
+
+  console.log("cats", cats)
+  console.log("catsState", catsState)
 
   return (
     <div>
@@ -35,7 +57,10 @@ export default function Home(props) {
       </Head>
 
       <main>
-        {cats && cats?.map((cat) => (
+        <button onClick={sortAsc}>Ascending</button>
+        <button onClick={sortDesc}>Descending</button>
+        <button onClick={sortReset}>Reset</button>
+        {catsState && catsState?.map((cat) => (
           <figure key={cat.name}>
             <Image
               src={`/images/${cat.image}`}
