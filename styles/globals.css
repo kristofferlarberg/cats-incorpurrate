@@ -9,6 +9,17 @@ a {
   text-decoration: none;
 }
 
+figure {
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  max-width: 220px;
+  position: relative
+}
+figcaption {
+  display: block;
+}
+
 * {
   box-sizing: border-box;
 }
