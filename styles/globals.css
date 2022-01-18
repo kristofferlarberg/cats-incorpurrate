@@ -2,11 +2,102 @@ html,
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 1.5rem;
+} 
+
+@media(min-width: 768px) {
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+    white-space: nowrap;
+  }  
+}
+
+header button {
+  margin: 0.4rem 0;
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 20px;
+  background-color: orange;
+  color: black;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media(min-width: 640px) {
+  header button {
+    margin: 1rem 1.5rem;
+  }
+}
+
+@media(min-width: 640px) {
+  header button:last-child {
+    margin-right: 0;
+  }
+}
+
+@media(min-width: 640px) {
+  header button {
+    margin: 1rem 0.5rem;
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 20px;
+    background-color: orange;
+    color: black;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+header button:hover {
+  background-color: lime;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+@media(min-width: 640px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin-top: 1rem;
+  }
+}
+
+@media(min-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin-top: 0;
+  }
 }
 
 main {
@@ -26,9 +117,12 @@ section {
   }
 }
 
+figure {
+  margin: 2rem;
+}
+
 @media(min-width: 768px) {
   figure {
-    margin: 2rem;
     width: calc(50% - 4rem);
   }
 }
@@ -46,4 +140,8 @@ figcaption {
 
 * {
   box-sizing: border-box;
+}
+
+.active-button {
+  background-color: lime;
 }
