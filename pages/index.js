@@ -63,7 +63,7 @@ export default function Home(props) {
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap" rel="stylesheet" />
       </Head>
       <header>
-        Cats Incorpurrate /ᐠ｡ꞈ｡ᐟ\
+        <div>Cats Incorpurrate /ᐠ｡ꞈ｡ᐟ\</div>
         <nav>
           <button
             className={filterToggle === "sortAsc" ? "active-button" : null}
