@@ -60,19 +60,21 @@ export default function Home(props) {
         <button onClick={sortAsc}>Ascending</button>
         <button onClick={sortDesc}>Descending</button>
         <button onClick={sortReset}>Reset</button>
-        {catsState && catsState?.map((cat) => (
-          <figure key={cat.name}>
-            <Image
-              src={`/images/${cat.image}`}
-              alt={`Image of ${cat.name}`}
-              width={500}
-              height={500}
-              placeholder="blur"
-              blurDataURL={"data:iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8f5PhDwAHjQLWJOWl2QAAAABJRU5ErkJggg=="}
-            />
-            <figcaption>{cat.name}</figcaption>
-          </figure>
-        ))}
+        <section>
+          {catsState && catsState?.map((cat) => (
+            <figure key={cat.name}>
+              <Image
+                src={`/images/${cat.image}`}
+                alt={`Image of ${cat.name}`}
+                width={500}
+                height={500}
+                placeholder="blur"
+                blurDataURL={"data:iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8f5PhDwAHjQLWJOWl2QAAAABJRU5ErkJggg=="}
+              />
+              <figcaption>{cat.name}</figcaption>
+            </figure>
+          ))}
+        </section>
       </main>
     </div>
   )
