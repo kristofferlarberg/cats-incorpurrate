@@ -23,14 +23,13 @@ export async function getStaticProps(context) {
   }
 }
 
-
 export default function Home(props) {
   const { cats } = props;
 
   return (
     <div>
       <Head>
-        <title>Incorpurrate</title>
+        <title>Cats Incorpurrate /ᐠ｡ꞈ｡ᐟ\</title>
         <meta name="description" content="Incorpurrate" />
         <link rel="icon" href="" />
       </Head>
