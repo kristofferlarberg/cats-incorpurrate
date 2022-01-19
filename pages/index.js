@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react';
-// import styles from '../styles/Home.module.css'
 
 export async function getStaticProps(context) {
   const fs = require('fs');
 
-  const response = await fetch("http://localhost:3000/api/cats")
+  const response = await fetch("http://localhost:3000/api/cats");
   const data = await response.json();
 
-  let catsData = [...data.cats]
+  let catsData = [...data.cats];
 
+  //This edits values for images in the JSON in cases where file endings differ from the image paths in the JSON data.
   fs.readdirSync('public/images').forEach(file => {
     if (file.slice(-4) === ".png") {
       catsData.forEach((cat) => {
@@ -19,7 +19,6 @@ export async function getStaticProps(context) {
         }
       })
     }
-    console.log(catsData);
   });
 
   return {
@@ -34,26 +33,24 @@ export default function Home(props) {
 
   //Sort based on cutenessLevel - low to high
   function sortAsc() {
-    const sortedData = [...catsData].sort((a, b) => a.cutenessLevel - b.cutenessLevel)
-    setCatsState(sortedData)
-    setFilterToggle("sortAsc")
+    const sortedData = [...catsData].sort((a, b) => a.cutenessLevel - b.cutenessLevel);
+    setCatsState(sortedData);
+    setFilterToggle("sortAsc");
   }
   //Sort based on cutenessLevel - high to low
   function sortDesc() {
-    const sortedData = [...catsData].sort((a, b) => b.cutenessLevel - a.cutenessLevel)
-    setCatsState(sortedData)
-    setFilterToggle("sortDesc")
+    const sortedData = [...catsData].sort((a, b) => b.cutenessLevel - a.cutenessLevel);
+    setCatsState(sortedData);
+    setFilterToggle("sortDesc");
   }
 
-  function sortReset(e) {
-    e.preventDefault
+  function sortReset() {
     const sortedData = catsData;
-    setCatsState(sortedData)
-    setFilterToggle("none")
+    setCatsState(sortedData);
+    setFilterToggle("none");
   }
 
-  console.log("catsData", catsData)
-  console.log("catsState", catsState)
+  console.log("catsState", catsState);
 
   return (
     <div>
@@ -106,4 +103,4 @@ export default function Home(props) {
       </main>
     </div>
   )
-}
+};
