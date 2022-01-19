@@ -34,6 +34,7 @@ export default function Home(props) {
   //Sort based on cutenessLevel - low to high
   function sortAsc() {
     const sortedData = [...catsData].sort((a, b) => a.cutenessLevel - b.cutenessLevel);
+
     setCatsState(sortedData);
     setFilterToggle("sortAsc");
   }
@@ -65,22 +66,22 @@ export default function Home(props) {
         <div>Cats Incorpurrate /ᐠ｡ꞈ｡ᐟ\</div>
         <nav>
           <button
-            className={filterToggle === "sortAsc" ? "active-button" : null}
-            onClick={sortAsc}
+            className={filterToggle === "none" ? "active-button" : null}
+            onClick={sortReset}
           >
-            Much cute
+            None
           </button>
           <button
             className={filterToggle === "sortDesc" ? "active-button" : null}
             onClick={sortDesc}
           >
-            Not cute
+            Much cute
           </button>
           <button
-            className={filterToggle === "none" ? "active-button" : null}
-            onClick={sortReset}
+            className={filterToggle === "sortAsc" ? "active-button" : null}
+            onClick={sortAsc}
           >
-            None
+            Not cute
           </button>
         </nav>
       </header>
